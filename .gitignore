@@ -33,6 +33,7 @@ users.log
 /public/assets/
 /public/system/
 .curl
+/image_content
 #/config/environment/*
 #/config/environment/production.rb
 #config/environments/production.rb
