@@ -1,0 +1,78 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ru:
+    name: "Андрей"
+    surname: "Нагорный"
+    second_name: "Александрович"
+    to_ru: "Русская версия"
+    to_en: "English version"
+    layouts:
+        nav:
+            about: "Обо мне"
+            services: "Проекты"
+            portfolio: "Портфолио"
+            contact: "Контакты"
+            test: "Тест"
+        header:
+            description:  |
+                Привет, меня зовут Нагорный Андрей. Я начинающий разработчик из Москвы.
+                Здесь можно узнать более подробную информацию обо мне, посмотреть примеры работ
+                и, при необходимости, связаться со мной.
+            about_link: "Подробнее"
+    static_pages:
+        about:
+            who_i: "Кто я?"
+            i_am: |
+                Я студент, обучающийся по дневной программе магистратуры
+                в московском техническом ВУЗе.  Уже несколько лет подряд я развиваюсь в сторону
+                информационных технологий, набираясь опыта и знаний, изучая основные инструменты
+                разработки.
+            what_i_like: Что мне интересно? 
+            i_like_is: |
+                Меня очень интересует программирование, особенно backend-разработка и игрострой.
+                Кроме того, мне нравится администрирование Linux-систем, пользователем которых я являюсь уже не один год.
+                Так же, меня привлекает DIY и программирование микроконтроллеров: я делал несколько небольших проектов на 
+                базе AVR микроконтроллера "Arduino".
+            what_i_know: Что я знаю?
+            i_know_is: |
+                С++, Java SE (в т.ч. TomCat, Hibernate), Ruby, Ruby on Rails, JavaScript, HTML5, SQL, LaTeX (верстка технической документации).
+                Имеется  опыт разворачивания и администрирования Linux-серверов с конфигурированием Apache HTTP Server, PostgreSQL,  Apache TomCat.
+                Владею GIT, знаю про SVN  и понимаю принципиальную разницу между ними.
+            what_i_want: Чего я хочу?
+            i_want_is: |
+                Я ищу стажировку в одной из московских компаний, чтобы как можно более эффективно реализовать свой потенциал,
+                получить не только теоритические знания, но и практический опыт с реальными проектами.
+            goto_contacts: Контакты
+        portfolio:
+            my_program_solutions: Мои программные решения
+            cloud_technology: Облачные технологии
+            cloud_technology_descript: |
+                Общий доступ доступ к ресурсам достигается развертыванием проекта на VPS с использование облачных технологий.
+            linux_based: Основано на GNU/Linux
+            linux_based_descript: |
+                На сервере с проектами используется надежная ОС на ядре Linux, что позволило достичь высокой производительности и отказоустойчивости.  
+            actual_frameworks: Никаких архаизмов! 
+            actual_frameworks_descript: |    
+                В качестве основного инструментария используются только современные и перспективные решения, такие как Java и Ruby on Rails.
+            mobile_solution: Мобильный API
+            mobile_solution_descript: |
+                Реализация API для мобильных устройств - важная функциональность многих программных решений.

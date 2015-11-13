@@ -8,26 +8,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <%=link_to 'Start Bootstrap', '/#', class:"navbar-brand page-scroll"  %>
+                <%=link_to t("surname")+ " "+t("name"), root_url , class:"navbar-brand page-scroll"  %>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <%=link_to 'About', "#{root_url}#about", class:"page-scroll"  %>
+                        <%=link_to t('.about'), "#{root_url}#about", class:"page-scroll"  %>
                     </li>
                     <li>
-                        <%=link_to 'Services', "#{root_url}#services", class:"page-scroll"  %>
+                        <%=link_to t('.services'), "#{root_url}#services", class:"page-scroll"  %>
                     </li>
                     <li>
-                        <%=link_to 'Portfolio', "#{root_url}#portfolio", class:"page-scroll"  %>
+                        <%=link_to t('.portfolio'), "#{root_url}#portfolio", class:"page-scroll"  %>
                     </li>
                     <li>
-                        <%=link_to 'Contact', "#{root_url}#contact", class:"page-scroll"  %>
+                        <%=link_to t('.contact'), "#{root_url}#contact", class:"page-scroll"  %>
                     </li>
                      <li>
-                        <%=link_to 'Test', testaction_path, class:"page-scroll"  %>
+                        <%=link_to t('.test'), testaction_path, class:"page-scroll"  %>
                     </li>
                 </ul>
             </div>

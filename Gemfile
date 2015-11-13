@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'jquery-turbolinks'
 gem 'font-awesome-sass'
+gem 'famfamfam_flags_rails'
 gem 'bootstrap-sass'
 gem 'sprockets-rails'
 

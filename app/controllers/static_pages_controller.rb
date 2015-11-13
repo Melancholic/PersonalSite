@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class StaticPagesController < HttpController
   def rootpage
   end
   def testaction

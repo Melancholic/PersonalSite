@@ -20,4 +20,57 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    name: "Andrey"
+    surname: "Nagorny"
+    second_name: "Alexandrovich"
+    to_ru: "Русская версия"
+    to_en: "English version"
+    layouts:
+        nav:
+            about: "About"
+            services: "Projects"
+            portfolio: "Portfolio"
+            contact: "Contacts"
+            test: "Test"
+        header:
+            description:  |
+                Hi, my name is Andrey Nagorny. I am a junior developer from Moscow.
+                You can find more information about me, to see examples of my work
+                and if necessary contact me.
+            about_link: "Read more"
+    static_pages:
+        about:
+            who_i: Who am I ?
+            i_am: |
+                I am a student studying in the day program of magistracy
+                in the Moscow technical university. For several years I have been doing IT, gaining experience and knowledge by learning the basic tools of
+                development.
+            what_i_like: What is interesting to me?
+            i_like_is: |
+                I am very interested in programming, especially backend-development and gamedev.
+                In addition, I like the administration of Linux-based systems, using which I have more than one year.
+                And I also enjoy DIY and programming microcontrollers: I did several small projects on the basis of the microcontroller "Arduino".
+            what_i_know: What do I know?
+            i_know_is: |
+                C ++, Java SE (including TomCat, Hibernate), Ruby, Ruby on Rails, JavaScript, HTML5, SQL, LaTeX (layout of technical documentation).
+                There is experience of deploying and administering Linux-based servers to configure Apache HTTP Server, PostgreSQL, Apache TomCat.
+                Actively used GIT, know about SVN and understand the fundamental difference between them.
+            what_i_want: What i want?
+            i_want_is: |
+                I'm looking for an internship in one of the Moscow companies,
+                for as effectively as possible to realize their potential and gain not only theoretical knowledge but and practical experience with real projects.
+            goto_contacts: Contacts
+        portfolio:
+            my_program_solutions: My Software Solutions
+            cloud_technology: Cloud technologies
+            cloud_technology_descript: |
+                Sharing access to resources is achieved by the deployment of the project on a VPS with the use of cloud technologies.
+            linux_based: Based on GNU/Linux
+            linux_based_descript: |
+                On the server that the project uses secure OS kernel Linux, which allowed to achieve high performance and fault tolerance.
+            actual_frameworks: No archaisms 
+            actual_frameworks_descript: |    
+               As the main instruments are used only modern and innovative solutions, such as Java and Ruby on Rails.
+            mobile_solution: Mobile API
+            mobile_solution_descript: |
+                Implementation of an API for mobile devices - important feature of many software solutions.
