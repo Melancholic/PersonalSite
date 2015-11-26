@@ -50,7 +50,7 @@ en:
                 I am very interested in programming, especially backend-development and gamedev.
                 In addition, I like the administration of Linux-based systems, using which I have more than one year.
                 And I also enjoy DIY and programming microcontrollers: I did several small projects on the basis of the microcontroller "Arduino".
-            what_i_know: What do I know?
+            what_i_know: What I can do?
             i_know_is: |
                 C ++, Java SE (including TomCat, Hibernate), Ruby, Ruby on Rails, JavaScript, HTML5, SQL, LaTeX (layout of technical documentation).
                 There is experience of deploying and administering Linux-based servers to configure Apache HTTP Server, PostgreSQL, Apache TomCat.
@@ -74,3 +74,9 @@ en:
             mobile_solution: Mobile API
             mobile_solution_descript: |
                 Implementation of an API for mobile devices - important feature of many software solutions.
+            coordinate_desc: Rails, Mobile API,  Mobile App (Android)
+            coordinate_name: Coordinate
+            view_code: View source code
+        rootpage:
+            contact_title: "Contacts"
+            contact_text: "You can contact me using these services"

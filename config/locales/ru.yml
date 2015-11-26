@@ -76,3 +76,9 @@ ru:
             mobile_solution: Мобильный API
             mobile_solution_descript: |
                 Реализация API для мобильных устройств - важная функциональность многих программных решений.
+            coordinate_desc: Rails, Mobile API,  Mobile App (Android)
+            coordinate_name: Coordinate
+            view_code: Исходный код
+        rootpage:
+            contact_title: "Контактные данные"
+            contact_text: "Вы можете связаться со мной, используя следующие сервисы"
