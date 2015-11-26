@@ -21,7 +21,7 @@
 .secret
 /config/database.yml
 /config/secrets.yml
-
+/config/contacts.yml
 /config/initializers/setup_mail.rb
 *~
 users.log 
