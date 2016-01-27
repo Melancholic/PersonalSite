@@ -1,0 +1,3 @@
+<% if(@need_verif_form)%>
+  <%= render '/shared/modals/form', form: 'users/finish_signup_form', run: 'auto', remote: true, id:"finish_setup_form", title: "Pls,  verif your email" %>
+<% end %>
