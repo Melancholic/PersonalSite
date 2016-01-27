@@ -18,15 +18,16 @@ class User < ActiveRecord::Base
         # Note that this may leave zombie accounts (with no associated identity) which
         # can be cleaned up at a later date.
         user = signed_in_resource ? signed_in_resource : identity.user
-
+          
+        # Get the existing user by email if the provider gives us a verified email.
+        # If no verified email was provided we assign a temporary email and ask the
+        # user to verify it on the next step via UsersController.finish_signup
+        email_is_verified = auth.info.email #&& (auth.info.verified || auth.info.verified_email)
+        email = auth.info.email if email_is_verified
+        
         # Create the user if needed
         if user.nil?
 
-          # Get the existing user by email if the provider gives us a verified email.
-          # If no verified email was provided we assign a temporary email and ask the
-          # user to verify it on the next step via UsersController.finish_signup
-          email_is_verified = auth.info.email #&& (auth.info.verified || auth.info.verified_email)
-          email = auth.info.email if email_is_verified
           user = User.where(:email => email).first if email
 
           # Create the user if it's a new registration
@@ -39,9 +40,14 @@ class User < ActiveRecord::Base
             )
             user.skip_confirmation!
             user.save!
+          end
+        else
+          unless(user.email_verified?)
+            user.email= email if email
+            user.skip_reconfirmation!
+            user.save!
+          end
         end
-    end
-
         # Associate the identity with the user if needed
         if identity.user != user
           identity.user = user
