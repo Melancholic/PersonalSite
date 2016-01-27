@@ -1,0 +1,5 @@
+<div class="row">
+	<%= link_to "Sign in", "#signin_tab", "data-toggle" => "modal", :class => 'btn btn-small modal-toggle', "data-target"=> ".auth_modal" %>
+	<%= link_to "Sign Up", "#signup_tab", "data-toggle" => "modal", :class => 'btn btn-small modal-toggle', "data-target"=> ".auth_modal" %>
+	<%= render 'shared/auth_modal' %>
+</div>

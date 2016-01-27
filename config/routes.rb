@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  scope :blog do
+      devise_for :users, :controllers => { 
+        omniauth_callbacks: "users/omniauth_callbacks",
+        registrations: 'custom_devise/registrations', 
+        sessions: 'custom_devise/sessions',
+        confirmations: 'custom_devise/confirmations',
+        passwords: 'custom_devise/passwords' 
+       }, :skip => [:registrations,:sessions]
+       devise_scope :user do
+        post "/users/sign_in" => "custom_devise/sessions#create",as: 'user_session' 
+        delete "/users/sign_out" => "custom_devise/sessions#destroy",as: 'destroy_user_session' 
+        post "/users" => "custom_devise/registrations#create", as: 'user_registration' 
+      end
+      resources :users, :only => [:destroy]
+      get '/'  =>  'blog#rootpage', as:"blog_root_page"
+  end
   root 'static_pages#rootpage'
   get 'testaction' => 'static_pages#testaction'
   match 'set_custom_locale', to:'http#set_custom_locale', via:'post';

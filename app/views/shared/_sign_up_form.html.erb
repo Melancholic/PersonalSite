@@ -1,0 +1,13 @@
+<%# FOR JSON%>
+<%# simple_form_for(User.new, url: registration_path(:user), html: {id: 'sign_up_user', :'data-type' => 'json'}, remote: true) do |f| %>
+<%@user ||= User.new%>
+<%= simple_form_for(@user, url: registration_path(:user), html: {id: 'sign_up_user'}, remote: true) do |f| %>
+<div class="form-inputs">
+  <%= f.input :email, autofocus: true %>
+  <%= f.input :password, autocomplete: "off" %>
+  <%= f.input :password_confirmation, autocomplete: "off" %>
+  <%= f.button :submit, "Sign up", class:"btn btn-primary" %>
+  <%= link_to "Resend confirmation instructions", new_user_confirmation_path, class:"pull-right" %>
+  </div>
+<% end %>
+

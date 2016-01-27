@@ -1,0 +1,3 @@
+ <%# flash.now[:error] = t("devise.failure.invalid",authentication_keys: "e-mail") %>
+$("#signin_tab").html("<%= escape_javascript(render('shared/sign_in_form'))%>");
+$(".messages-area").html("<%= escape_javascript(render 'layouts/messages')%>");

@@ -1,0 +1,13 @@
+<% case type%>
+  <% when 'error'%>
+     <%= render 'shared/modals/error', message:message %>
+  <% when 'info'%>
+     <%= render 'shared/modals/info', message:message %>
+  <% when 'warning'%>
+     <%= render 'shared/modals/warning', message:message %>
+  <% when 'success'%>
+     <%= render 'shared/modals/success', message:message %>
+  <% when 'notice'%>
+     <%= render 'shared/modals/default', message:message %>  
+<%end%>
+

@@ -1,0 +1,15 @@
+<%#FOR JSON %>
+<%# simple_form_for(User.new, url: session_path(:user), html:{id: 'sign_in_user', :'data-type' => 'json'}, remote: true) do |f| %>
+
+<%@user ||= User.new%>
+<%= simple_form_for(@user, url: session_path(:user), html:{id: 'sign_in_user', :'data-type' => 'json'}, remote: true) do |f| %>
+<div class="form-inputs">
+  <%= f.input :email, autofocus: true %>
+  <%= f.input :password, autocomplete: "off" %>
+  <% if Devise.mappings[:user].rememberable? -%>
+  <%= f.input :remember_me, as: :boolean %>
+  <% end %>
+  <%= f.button :submit, "Sign in", class: 'btn btn-primary' %>
+  <%= link_to "Forgot your password?", new_user_password_path, class:"pull-right" %>
+</div>
+<% end %>

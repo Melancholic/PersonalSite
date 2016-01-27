@@ -1,0 +1,11 @@
+<!-- Hello new user! BEGIN -->
+<%flash.each do |key, val| %>
+  <%=render 'shared/modals/modal', type:key, message: val %>
+<%end %>
+<%#if signed_in? %>
+  <!--Not verificated -->
+  <%# if !current_user.verificated? && !current_page?(verification_user_path(current_user)) %>
+    <%#= render 'shared/modals/form', form:'users/verification_form', id:'verification_form', title: t('verification') , run: 'auto', type:'warning' %>
+  <%#end %>
+<%#end%>
+

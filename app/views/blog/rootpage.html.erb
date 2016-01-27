@@ -1,0 +1,7 @@
+<h1>Hello, this my blog!</h1>
+<% if current_user %>
+  <%= "Hello, #{current_user.email}" %>
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+<% else %>
+  <%= render 'shared/session_buttons' %>
+<% end %>

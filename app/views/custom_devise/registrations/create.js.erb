@@ -1,0 +1,6 @@
+<% if  @user.errors.any? %>
+    $("#signup_tab").html("<%= escape_javascript(render('shared/sign_up_form'))%>")
+<%else%>
+    <% flash[:info] = t("devise.confirmations.send_instructions") %>
+    location.reload();
+<%end %>
