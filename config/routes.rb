@@ -14,9 +14,11 @@ Rails.application.routes.draw do
       end
       resources :users, :only => [:destroy]
       get '/'  =>  'blog#rootpage', as:"blog_root_page"
+      match '/users/:id/finish_signup' => 'users#finish_signup', via: [:patch], :as => :finish_signup #get
+      get 'testaction' => 'blog#testaction'
   end
   root 'static_pages#rootpage'
-  get 'testaction' => 'static_pages#testaction'
+
   match 'set_custom_locale', to:'http#set_custom_locale', via:'post';
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

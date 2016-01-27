@@ -1,5 +1,6 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
+API_KEYS = YAML::load_file("#{Rails.root}/config/api_keys.yml")[Rails.env]
 Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
@@ -264,4 +265,9 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
   config.parent_controller = 'BlogController'
+  config.omniauth :facebook, API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret']
+  config.omniauth :github, API_KEYS['github']['api_key'], API_KEYS['github']['api_secret']
+  config.omniauth :twitter, API_KEYS['twitter']['api_key'], API_KEYS['twitter']['api_secret']
+  config.omniauth :vkontakte, API_KEYS['vkontakte']['api_key'], API_KEYS['vkontakte']['api_secret']
+  config.omniauth :google_oauth2, API_KEYS['google']['api_key'], API_KEYS['google']['api_secret'],:name => "google"
 end

@@ -1,9 +1,10 @@
 class CustomDevise::PasswordsController <  Devise::PasswordsController
-protected
+    skip_before_action :store_location
+    protected
     def after_sending_reset_password_instructions_path_for(resource_name)
-        blog_root_page_path
+        restore_location_or_root
     end
     def after_resetting_password_path_for(resource_name)
-        blog_root_page_path
+        restore_location_or_root
     end
 end

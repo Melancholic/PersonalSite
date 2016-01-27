@@ -1,5 +1,29 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :finish_signup]
+
+ # GET/PATCH /users/:id/finish_signup
+ def finish_signup
+    # authorize! :update, @user 
+    if request.patch? && user_params
+      if @user.update(user_params)
+        @user.skip_reconfirmation!
+        sign_in(@user, :bypass => true)
+        #redirect_to @user, notice: 'Your profile was successfully updated.'
+        flash[:info]=t('devise.failure.unconfirmed')+" "+t('devise.confirmations.send_instructions');
+        respond_to do |format|
+          format.html;
+          format.js{render js:'location.reload()'}
+        end
+      else
+        logger.info @user.errors;
+        @show_errors = true
+        respond_to do |format|
+          format.html;
+          format.js{render 'finish_signup'}
+        end
+      end
+    end
+  end
 
   # GET /users
   # GET /users.json
@@ -69,6 +93,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :nickname, :provider, :url)
+      params.require(:user).permit(:username, :nickname, :provider, :url, :email)
     end
-end
+  end

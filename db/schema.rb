@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122100053) do
+ActiveRecord::Schema.define(version: 20160125152844) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",       null: false
@@ -34,6 +34,16 @@ ActiveRecord::Schema.define(version: 20160122100053) do
 
   add_index "categories", ["parrent_id"], name: "index_categories_on_parrent_id"
 
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "nickname"
@@ -55,6 +65,7 @@ ActiveRecord::Schema.define(version: 20160122100053) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "name"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

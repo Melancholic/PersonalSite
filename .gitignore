@@ -34,6 +34,7 @@ users.log
 /public/system/
 .curl
 /image_content
+/config/api_keys.yml
 #/config/environment/*
 #/config/environment/production.rb
 #config/environments/production.rb
