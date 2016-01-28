@@ -2,38 +2,47 @@
 <html>
 <head>
 	<title><%= full_title(yield(:title))%></title>
-  	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' %>
-    <%= csrf_meta_tags %>
-   	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Nagorny Andrey">
-    <meta name="description" content="About me">
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' %>
+ <%= csrf_meta_tags %>
+ <meta charset="utf-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <meta name="author" content="Nagorny Andrey">
+ <meta name="description" content="About me">
+ <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 </head>
 <%if current_page?(root_path)%>
-  <body id="page-top">
-    <%=render 'layouts/header'%>
-    <%= yield %>
-    <hr>
-    <%= debug(params) if Rails.env.development? %>
-    <%=render 'layouts/footer'%>
-  </body>
+<body id="page-top">
+  <%=render 'layouts/header'%>
+  <%= yield %>
+  <hr>
+  <%= debug(params) if Rails.env.development? %>
+  <%=render 'layouts/footer'%>
+</body>
 <%else%>
-  <body id="page-top">
-    <%=render 'layouts/header'%>
-    <div class="container">
-      <%= yield %>
+<body id="page-top">
+  <%=render 'layouts/header'%>
+  <div class="container">
+    <div class="row">
+      <main itemscope="" itemtype="http://schema.org/Article" class="col-md-8">
+        <%= yield %>
+      </main>
+      <aside id="sidebar" class="col-md-4">
+        <%= render 'blog/categories' %>
+        <%= render 'blog/categories' %>
+        <%= render 'blog/categories' %>
+      </aside>
     </div>
-    <hr>
-    <%= debug(params) if Rails.env.development? %>
-    <%=render 'layouts/footer'%>
-  </body>
+  </div>
+  <hr>
+  <%= debug(params) if Rails.env.development? %>
+  <%=render 'layouts/footer'%>
+</body>
 <%end%>
 <div class="forms-area">
-<%=render 'shared/finish_signup_form_sources'%>
+  <%=render 'shared/finish_signup_form_sources'%>
 </div>
 <div class="messages-area">
   <%=render 'layouts/messages'%>

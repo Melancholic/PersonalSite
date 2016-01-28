@@ -1,3 +1,18 @@
 // Place all the styles related to the Blog controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.panel{
+    border-color: #666666;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.panel >.panel-heading{
+    border-color: #666666;
+    background-color: #666666;
+}
+.panel >.panel-body{
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.nav.nav-list.categories{
+    color: #666666;
+}
