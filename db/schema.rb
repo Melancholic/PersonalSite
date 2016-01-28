@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125152844) do
+ActiveRecord::Schema.define(version: 20160128121626) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title",       null: false
@@ -19,9 +19,11 @@ ActiveRecord::Schema.define(version: 20160125152844) do
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"
+  add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "title",                   null: false
@@ -43,6 +45,21 @@ ActiveRecord::Schema.define(version: 20160125152844) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles_users", force: :cascade do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
+  add_index "roles_users", ["role_id", "user_id"], name: "index_roles_users_on_role_id_and_user_id", unique: true
+  add_index "roles_users", ["role_id"], name: "index_roles_users_on_role_id"
+  add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"

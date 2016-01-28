@@ -4,10 +4,12 @@ class User < ActiveRecord::Base
     devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable,  :confirmable
     has_many :identities, dependent: :destroy
+    has_many :articles
     TEMP_EMAIL_PREFIX = 'change@me'
     TEMP_EMAIL_REGEX = /\Achange@me/
 
     validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
+    has_and_belongs_to_many :roles
 
     def self.find_for_oauth(auth, signed_in_resource = nil)
         # Get the identity and user if they exist
@@ -18,7 +20,7 @@ class User < ActiveRecord::Base
         # Note that this may leave zombie accounts (with no associated identity) which
         # can be cleaned up at a later date.
         user = signed_in_resource ? signed_in_resource : identity.user
-          
+
         # Get the existing user by email if the provider gives us a verified email.
         # If no verified email was provided we assign a temporary email and ask the
         # user to verify it on the next step via UsersController.finish_signup
@@ -37,7 +39,7 @@ class User < ActiveRecord::Base
               #username: auth.info.nickname || auth.uid,
               email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
               password: Devise.friendly_token[0,20]
-            )
+              )
             user.skip_confirmation!
             user.save!
           end
@@ -52,11 +54,17 @@ class User < ActiveRecord::Base
         if identity.user != user
           identity.user = user
           identity.save!
+        end
+        user
       end
-      user
-    end
 
-    def email_verified?
+      def email_verified?
         self.email && self.email !~ TEMP_EMAIL_REGEX
+      end
+
+      def role?(role)
+        !!self.roles.find_by_name(role.to_s.downcase)
+      end
+
+      
     end
-end

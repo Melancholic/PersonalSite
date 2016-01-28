@@ -13,6 +13,9 @@ Rails.application.routes.draw do
         post "/users" => "custom_devise/registrations#create", as: 'user_registration' 
       end
       resources :users, :only => [:destroy]
+      resources :categories, :only => [:create,:show,:destroy] do
+        resources :articles
+      end
       get '/'  =>  'blog#rootpage', as:"blog_root_page"
       match '/users/:id/finish_signup' => 'users#finish_signup', via: [:patch], :as => :finish_signup #get
       get 'testaction' => 'blog#testaction'

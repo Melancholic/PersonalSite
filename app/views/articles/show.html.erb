@@ -1,0 +1,28 @@
+<div class="row">
+    <%= current_user.email %>
+    <% if can? :read, @article %>
+</br>CAN READ<br>
+<% end %>
+<h1><%=@article.title%></h1>
+
+<div class="row"> 
+    <% if can? :update, @article %>
+        <div class="col-md-1 pull-left"><%= link_to "Edit",edit_category_article_path(@category,@article) %></div>
+    <% end %>
+    <% if can? :destroy, @article %>
+        <div class="col-md-1 pull-left"><%= link_to "Destroy", category_article_path(@category,@article), method: :delete %></div>
+    <% end %>
+<div class="col-md-1">|</div>
+<div class="col-md-8"><%=link_to @article.author.email, user_path(@article.author) %> posted on <%=link_to @category.title, category_path(@category)%> in <%=@article.created_at%></div>
+</div>
+
+
+<p>
+    <%= raw @article.body %>
+</p>
+
+
+<% if can? :create, @article %>
+</br>CAN create<br>
+<% end %>
+</div>
