@@ -1,23 +1,2 @@
-<div class="panel">
-  <div class="panel-heading">
-    <h5 class="panel-title">
-    <i class="fa fa-search"></i> Поиск
-    </h5>
-  </div>
-  <div class="panel-body">
-    
-
-  <div clas="well" >
-    <div >
-        <div>
-            <ul class="nav nav-list categories" id="categories_tree">
-            <!-- From AJAX (see in /assets/javascripts/blog.js-->
-            </ul>
-        </div>
-    </div>
-    </div>
-
-  </div>
-</div>
-
+<%= render 'shared/panel', title:t('categories'), title_img_classes:"fa fa-sitemap", body:'<div id="treeview"></div>' %>
 
