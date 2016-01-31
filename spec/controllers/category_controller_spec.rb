@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe CategoryController, type: :controller do
+RSpec.describe CategoriesController, type: :controller do
 
 end
