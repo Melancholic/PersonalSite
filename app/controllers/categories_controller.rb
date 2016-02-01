@@ -13,6 +13,7 @@ class CategoriesController < BlogController
     end
 
     def show
+        @articles = Article.by_category(@category).page params[:page]
     end
 
 private

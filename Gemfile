@@ -16,8 +16,16 @@ gem 'omniauth-google-oauth2'
 gem 'timecop'
 gem 'require_all'
 gem 'simple_form'
+gem 'gretel'
 #for eager load categories
 gem 'goldiloader'
+#for BB-code formating
+gem 'bb-ruby'
+gem 'truncate_html'
+#pagination
+gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record

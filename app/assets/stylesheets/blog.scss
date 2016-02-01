@@ -13,3 +13,79 @@
 .nav.nav-list.categories{
     color: #666666;
 }
+
+main {
+    padding: 50px 0;
+}
+
+.posts-divider {
+    max-width: none;
+}
+
+.badge.user{
+    a {
+        color:#ddd;
+    }
+    background-color: #666666;
+    a:hover, a:focus{
+        color: #fff;
+        text-decoration: none;
+    }
+}
+.post-header{
+    //border: 1px solid #eee;
+    a:hover, a:focus{
+        text-decoration: none;
+    }
+}
+.post-title{
+    h2{
+        margin-bottom: 0px;
+    }
+}
+.post-header > .actions{
+    margin-top: -5px;
+    margin-bottom: 10px;
+}
+.post-footer{
+    margin-top: -10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.timestamp{
+    color:#999;
+    font-style: italic;
+}
+
+.label{
+
+    a{
+        color:rgba(255,255,255,0.7);
+    };
+
+    a:hover, a:focus{
+        color: #fff;
+        text-decoration: none;
+    }
+}
+
+
+.badge-danger{
+    background-color: #d9534f;
+}
+.badge-warning{
+    background-color: #f0ad4e;
+}
+.badge-info{
+    background-color: #5bc0de;
+}
+.badge-success{
+    background-color: #5cb85c;
+}
+.center-block {
+  text-align: center;
+}
+
+.pagination{
+    font-size: 13px;
+}

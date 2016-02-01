@@ -3,32 +3,32 @@
         <div class="col-md-8">
             <div class="post-header">
                 <div class="post-title">
-                    <h2><%= link_to @article.title, category_article_path(@category,@article) %></h2>
+                    <h2><%= link_to article.title, category_article_path(@category,article) %></h2>
                 </div>
                 <div class="actions">
                     <span class="timestamp">
-                        posted by  <span class=" user"><%= link_to @article.author.name, @article.author%>
+                        posted by  <span class=" user"><%= link_to article.author.name, article.author%>
                     </span> at 
-                    <span class=" time" title="<%=@article.created_at.strftime("%F %H:%M")%>">
-                        <%= time_ago_in_words(@article.created_at)%>
+                    <span class=" time" title="<%=article.created_at.strftime("%F %H:%M")%>">
+                        <%= time_ago_in_words(article.created_at)%>
                     </span> ago.
                     </span>
-                    <% if (can?(:update, @article) || can?(:destroy,@article)) %>
+                    <% if (can?(:update, article) || can?(:destroy,article)) %>
                     <div class="btn-group pull-right">
                       <a class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench fa-fw"></i> Actions
                         <span class="fa fa-caret-down"></span></a>
                       <ul class="dropdown-menu">
-                            <% if can? :update, @article %>
+                            <% if can? :update, article %>
                                 <li>
-                                    <%= link_to edit_category_article_path(@category,@article) do |variable| %>
+                                    <%= link_to edit_category_article_path(@category,article) do |variable| %>
                                         <span class="fa fa-pencil fa-fw text-warning"> Edit</span></li>
                                     <%end %>
                                 </li>
                             <% end %>           
-                            <% if can? :destroy, @article %>
+                            <% if can? :destroy, article %>
                             <li class="divider"></li>
                                 <li>
-                                    <%= link_to category_article_path(@category,@article), method: :delete, 'data-confirm'=>"Are you sure?" do |variable| %>
+                                    <%= link_to category_article_path(@category,article), method: :delete, 'data-confirm'=>"Are you sure?" do |variable| %>
                                         <span class="icon fa fa-trash text-danger"> Destroy</span></li>
                                     <%end%>
                                 </li>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="post-body">
-                <p class="well"><%= raw  @article.body %></p>
+                <p class="well"><%= raw  truncate_html(article.body, length: 1000) %></p>
             </div>
             <div class="post-footer">
                 <div class="tags">

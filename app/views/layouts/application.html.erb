@@ -26,8 +26,13 @@
   <%=render 'layouts/header'%>
   <div class="container">
     <div class="row">
-      <main itemscope="" itemtype="http://schema.org/Article" class="col-md-8">
-        <%= yield %>
+      <main itemscope="" itemtype="" class="col-md-8">
+        <div class="container col-md-8">
+            <% if @category.present? %>
+              <%= render 'shared/breadcrumb' %>
+            <%end%>
+            <%= yield %>
+        </div>
       </main>
       <aside id="sidebar" class="col-md-4">
         <%= render 'blog/categories' %>
