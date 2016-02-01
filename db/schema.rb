@@ -62,10 +62,6 @@ ActiveRecord::Schema.define(version: 20160128121626) do
   add_index "roles_users", ["user_id"], name: "index_roles_users_on_user_id"
 
   create_table "users", force: :cascade do |t|
-    t.string   "username"
-    t.string   "nickname"
-    t.string   "provider"
-    t.string   "url"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: "", null: false
