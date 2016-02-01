@@ -18,7 +18,11 @@ $(document).ready(function(){
             $('#treeview').on('nodeSelected', function(event, data) {
               document.location=data.href
             });
+
             var x=$('#treeview').treeview('getSelected')[0];
+            //Expand childrens
+            $('#treeview').treeview('expandNode',[x, { silent: true }])
+            //Expand parents
             do {
                 x=$('#treeview').treeview('getParent',x)
                 $('#treeview').treeview('expandNode',[x, { silent: true }]);
