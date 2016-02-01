@@ -6,7 +6,7 @@ end
 
 crumb :category do |cat|
    link ('<i class="fa fa-code-fork"></i> '+cat.title.truncate(20)).html_safe, category_path(cat)
-   parent :category, cat.parrent unless cat.parrent.nil?
+   parent :category, cat.parent unless cat.parent.nil?
  end
 
  crumb :article do |art|

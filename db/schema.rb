@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20160128121626) do
   add_index "articles", ["user_id"], name: "index_articles_on_user_id"
 
   create_table "categories", force: :cascade do |t|
-    t.string   "title",                   null: false
-    t.string   "description"
-    t.integer  "weight",      default: 0, null: false
-    t.integer  "parrent_id"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string   "title",                    null: false
+    t.string   "description", default: "", null: false
+    t.integer  "weight",      default: 50, null: false
+    t.integer  "parent_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
-  add_index "categories", ["parrent_id"], name: "index_categories_on_parrent_id"
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id"
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
