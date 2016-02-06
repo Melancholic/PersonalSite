@@ -16,4 +16,8 @@
 //= require bootstrap
 //= require_tree .
 //= require turbolinks	
-
+//= require highlight
+//= require i18n
+//= require i18n/translations
+//= require fancybox
+//= require ckeditor/init

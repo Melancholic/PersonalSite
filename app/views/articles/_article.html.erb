@@ -20,7 +20,7 @@
                       <ul class="dropdown-menu">
                             <% if can? :update, article %>
                                 <li>
-                                    <%= link_to edit_category_article_path(@category,article) do |variable| %>
+                                    <%= link_to edit_category_article_path(@category,article), data: { no_turbolink: true } do |variable| %>
                                         <span class="fa fa-pencil fa-fw text-warning"> Edit</span></li>
                                     <%end %>
                                 </li>
@@ -39,7 +39,11 @@
                 </div>
             </div>
             <div class="post-body">
-                <p class="well"><%= raw  truncate_html(article.body, length: 1000) %></p>
+                <% if @article.present? && article==@article %>
+                    <div class="well"><%= raw  article.body %></div>
+                <% else %>
+                    <div class="well"><%= raw  truncate_html(article.body, length: 1000) %></div>
+                <% end %>
             </div>
             <div class="post-footer">
                 <div class="tags">

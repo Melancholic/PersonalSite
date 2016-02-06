@@ -12,7 +12,7 @@ $(document).ready(function(){
                 onhoverColor: '#777',
                 color: '#fff',
                 selectedBackColor: '#555',
-                enableLinks:true,
+                enableLinks:false,
                 showTags: true
             });
             $('#treeview').on('nodeSelected', function(event, data) {

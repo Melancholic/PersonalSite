@@ -7,6 +7,19 @@ class ArticlesController < BlogController
     def show
         render_404 if @article.nil?
     end
+
+    def edit
+        authorize! :edit, @article
+    end
+
+    def update
+        if(@article.update_attributes(article_params))
+            redirect_to [@category, @article]
+        else
+            render 'edit'
+        end
+    end
+
     private
 
 

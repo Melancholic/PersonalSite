@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   scope :blog do
       devise_for :users, :controllers => { 
         omniauth_callbacks: "users/omniauth_callbacks",
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
       get 'testaction' => 'blog#testaction'
   end
   root 'static_pages#rootpage'
-
+  
   match 'set_custom_locale', to:'http#set_custom_locale', via:'post';
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

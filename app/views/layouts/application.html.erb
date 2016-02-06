@@ -4,6 +4,8 @@
 	<title><%= full_title(yield(:title))%></title>
  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= yield :javascript_includes %>
+ <%= render 'layouts/i18n_js' %>
  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' %>
  <%= csrf_meta_tags %>
  <meta charset="utf-8">
@@ -28,10 +30,10 @@
     <div class="row">
       <main itemscope="" itemtype="" class="col-md-8">
         <div class="container col-md-8">
-            <% if @category.present? %>
-              <%= render 'shared/breadcrumb' %>
-            <%end%>
-            <%= yield %>
+          <% if @category.present? %>
+            <%= render 'shared/breadcrumb' %>
+          <%end%>
+          <%= yield %>
         </div>
       </main>
       <aside id="sidebar" class="col-md-4">

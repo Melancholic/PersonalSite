@@ -25,7 +25,7 @@ class Ability
         can :read, Article
         #can :read, Comment
     end
-    
+
 
     # Define abilities for the passed in user here. For example:
     #

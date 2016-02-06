@@ -19,12 +19,19 @@ gem 'simple_form'
 gem 'gretel'
 #for eager load categories
 gem 'goldiloader'
-#for BB-code formating
-gem 'bb-ruby'
+#for Article formating
+gem 'ckeditor'
 gem 'truncate_html'
+gem 'sanitize'
+#for file
+gem 'paperclip'
 #pagination
 gem 'kaminari'
 gem 'kaminari-bootstrap', '~> 3.0.1'
+#18n for js
+gem 'i18n-js', '~> 2.1.2'
+
+gem 'puma'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
