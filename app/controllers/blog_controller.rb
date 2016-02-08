@@ -8,7 +8,13 @@ class BlogController < HttpController
     def testaction
     end
 	
-    private
+    protected
+    
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:error] = exception.message
+        redirect_to blog_root_page_url
+    end
+
     def store_location
         return unless request.get? 
         session[:previous_url]=request.path

@@ -1,0 +1,22 @@
+<h3> Sign in with: </h3>
+<div class="area">
+    <div class="text-center">
+        <%=link_to user_omniauth_authorize_path(:github), class:"btn btn-social-icon btn-lg btn-github"  do%>
+        <i class="fa fa-github"></i>
+        <% end %>
+        <%=link_to user_omniauth_authorize_path(:vkontakte), class:"btn btn-social-icon btn-lg btn-vk"  do%>
+        <i class="fa fa-vk"></i>
+        <% end %>
+        <%=link_to user_omniauth_authorize_path(:google), class:"btn  btn-social-icon btn-lg btn-google" do%>
+        <i class="fa fa-google-plus"></i>
+        <% end %>
+        <%=link_to user_omniauth_authorize_path(:facebook), class:"btn  btn-social-icon btn-lg btn-facebook"  do%>
+        <i class="fa fa-facebook"></i> 
+        <% end %>
+        <%=link_to user_omniauth_authorize_path(:twitter), class:"btn btn-social-icon btn-lg btn-twitter"  do%>
+        <i class="fa fa-twitter"></i>
+        <% end %>
+    </div>
+</div>
+<p class="link-to-classic-auth">or <%= link_to "sign up", "#signup_tab", :class => 'modal-toggle' %> and <%= link_to "sign in", "#signin_tab", :class => 'modal-toggle'%>.
+</p>

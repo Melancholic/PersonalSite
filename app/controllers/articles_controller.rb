@@ -1,6 +1,21 @@
 class ArticlesController < BlogController
-    before_action :set_category, only: [:index,:show, :edit, :update, :destroy]
-    before_action :set_article, only: [:show, :edit, :update, :destroy]
+    before_action :set_category, except:[:new,:create]
+    load_and_authorize_resource
+    #before_action :set_article, only: [:show, :edit, :update, :destroy]
+    def new
+        @article = Article.new()
+    end
+
+    def create
+        @article =Article.new(article_params);
+        @article.author=current_user;
+        if(@article.save)
+            redirect_to [@article.category, @article]
+        else
+            render 'new', :error => "An Error Occurred! #{@article.errors[:base].to_s}"
+        end
+    end
+
     def index
         @articles= @category.articles
     end
@@ -20,9 +35,22 @@ class ArticlesController < BlogController
         end
     end
 
+    def destroy
+        title= @article.title
+        if (@article.destroy)
+            url = @category if restore_location_or_root == category_article_path(@category, @article)
+            flash[:info]="Article #{title} has been deleted!" ;
+            if (url.present?)
+                redirect_to url
+            else
+                redirect_to :back
+            end
+        else
+            redirect_to :back, :error => "An Error Occurred! #{@article.errors[:base].to_s}"
+        end
+    end
+
     private
-
-
     def set_category
         @category = Category.find(params[:category_id])
     end
@@ -30,9 +58,8 @@ class ArticlesController < BlogController
         @article = Article.where(id:params[:id], category:@category).first
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
         logger.info "\n\n\n #{params}\n\n"
-        params.require(:article).permit(:id, :title, :body, :category_id, :user_id)
+        params.require(:article).permit(:title, :body, :category_id)
     end
 end

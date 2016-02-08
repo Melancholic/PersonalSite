@@ -1,0 +1,5 @@
+<%= form.input :title %>
+<%#= form.association :category, include_blank: false %>
+<%= form.association :category,collection: nested_dropdown(Category.rooted), include_blank: false, :as => :select%>
+<%= form.input :body, as: :ckeditor%>
+<%= form.button :submit %>

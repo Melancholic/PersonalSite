@@ -13,10 +13,13 @@ Rails.application.routes.draw do
         delete "/users/sign_out" => "custom_devise/sessions#destroy",as: 'destroy_user_session' 
         post "/users" => "custom_devise/registrations#create", as: 'user_registration' 
       end
-      resources :users, :only => [:destroy]
+      resources :users, :only => [:show, :edit, :update, :destroy]
       get '/categories' => 'categories#index'
-      resources :categories, :only => [:index,:create,:show,:destroy] do
-        resources :articles
+      resources :categories, :only => [:create,:show,:destroy] do
+        resources :articles, only: [:show, :edit, :update, :destroy]
+        collection do
+          resources :articles, only:[:new,:create]
+        end
       end
       get '/'  =>  'blog#rootpage', as:"blog_root_page"
       match '/users/:id/finish_signup' => 'users#finish_signup', via: [:patch], :as => :finish_signup #get

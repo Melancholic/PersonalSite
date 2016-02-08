@@ -10,7 +10,7 @@
         <%=link_to "Add VK", user_omniauth_authorize_path(:vkontakte) %>
         <%=link_to "Add Google", user_omniauth_authorize_path(:google) %>
     <% else %>
-        <%= render 'shared/session_buttons' %>
+        <%#= render 'shared/session_buttons' %>
         <%=link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
         <%=link_to "Sign in with GitHub", user_omniauth_authorize_path(:github) %>
         <%=link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %>

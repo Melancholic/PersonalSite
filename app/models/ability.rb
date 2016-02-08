@@ -14,7 +14,7 @@ class Ability
         can [:update, :destroy], Article do |x|
             x.try(:author) == user
         end
-        can [:create], Article
+        can [:create, :new], Article
     end
     if user.role? :reader
         can :read, Article

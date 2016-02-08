@@ -26,20 +26,19 @@
 <%else%>
 <body id="page-top">
   <%=render 'layouts/header'%>
+
   <div class="container">
-    <div class="row">
-      <main itemscope="" itemtype="" class="col-md-8">
-        <div class="container col-md-8">
-          <% if @category.present? %>
-            <%= render 'shared/breadcrumb' %>
-          <%end%>
-          <%= yield %>
-        </div>
-      </main>
-      <aside id="sidebar" class="col-md-4">
-        <%= render 'blog/categories' %>
-      </aside>
+   <div id="sidebar" class="col-xs-12 col-md-4 col-md-push-8 right-blocks">
+    <%= render 'blog/user_card' %>
+    <%= render 'blog/categories' %>
+  </div>
+    <div itemscope="" itemtype="" class="col-xs-12 col-md-8 col-md-pull-4 main-content">
+        <% if @category.present? %>
+        <%= render 'shared/breadcrumb' %>
+        <%end%>
+        <%= yield %>
     </div>
+
   </div>
   <hr>
   <%= debug(params) if Rails.env.development? %>
@@ -48,6 +47,7 @@
 <%end%>
 <div class="forms-area">
   <%=render 'shared/finish_signup_form_sources'%>
+  <%= render 'shared/session_buttons' unless signed_in? %>
 </div>
 <div class="messages-area">
   <%=render 'layouts/messages'%>

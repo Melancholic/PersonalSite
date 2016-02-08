@@ -1,8 +1,8 @@
 <%= javascript_include_tag "ckeditor/config.js" %>
 <div class="row">
     <div class="col-md-12">
-        <%= simple_form_for [@category, @article] do |f| %>
-          <%= render 'fields', form: f %>
+        <%= simple_form_for @article do |f| %>
+          <%= render 'fields', form:f %>
         <% end %>
     </div>
 </div>

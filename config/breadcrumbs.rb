@@ -10,7 +10,8 @@ crumb :category do |cat|
  end
 
  crumb :article do |art|
-   link ('<i class="fa fa-file-text"></i> ' + art.title.truncate(20)).html_safe, category_articles_path(art.category, art)
+   link ('<i class="fa fa-file-text"></i> ' + art.title.truncate(20)).html_safe, category_article_path(art.category, art) unless art.new_record?
+  # link ('<i class="fa fa-pencil-square-o"></i> ' + "New Article").html_safe, category_path(art.category) if art.new_record?
    parent :category, art.category unless art.category.nil?
  end
 

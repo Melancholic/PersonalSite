@@ -9,15 +9,19 @@
       <div class="modal-body">
         <div class="tabbable"> <!-- Only required for left/right tabs -->
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#signup_tab" data-toggle="tab"><%=t('sign_up')%></a></li>
+          <li><a href="#social_tab" data-toggle="tab"><%=t('social_in')%></a></li>
           <li><a href="#signin_tab" data-toggle="tab"><%=t('log_in')%></a></li>
+          <li class="active"><a href="#signup_tab" data-toggle="tab"><%=t('sign_up')%></a></li>
         </ul>
           <div class="tab-content">
-          <div class="tab-pane active" id="signup_tab">
-              <%= render  'shared/sign_up_form' %>
+          <div class="tab-pane" id="social_tab">
+              <%= render  'shared/omni_auth_form' %>
           </div>
           <div class="tab-pane" id="signin_tab">
               <%= render  'shared/sign_in_form' %>
+          </div>
+          <div class="tab-pane active" id="signup_tab">
+              <%= render  'shared/sign_up_form' %>
           </div>
         </div>
       </div>

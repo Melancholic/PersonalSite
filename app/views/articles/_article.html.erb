@@ -1,58 +1,60 @@
-<div class="row">
-    <div class="container">
-        <div class="col-md-8">
-            <div class="post-header">
-                <div class="post-title">
-                    <h2><%= link_to article.title, category_article_path(@category,article) %></h2>
-                </div>
-                <div class="actions">
-                    <span class="timestamp">
-                        posted by  <span class=" user"><%= link_to article.author.name, article.author%>
-                    </span> at 
-                    <span class=" time" title="<%=article.created_at.strftime("%F %H:%M")%>">
-                        <%= time_ago_in_words(article.created_at)%>
-                    </span> ago.
-                    </span>
-                    <% if (can?(:update, article) || can?(:destroy,article)) %>
-                    <div class="btn-group pull-right">
-                      <a class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench fa-fw"></i> Actions
+    <div class="row">
+    <div class="col-xs-12 col-md-12">
+        <div class="post-header">
+            <div class="post-title">
+                <h2><%= link_to article.title, category_article_path(@category,article) %></h2>
+            </div>
+            <div class="actions">
+                <span class="timestamp">
+                    posted by  <span class=" user"><%= link_to article.author.name, article.author%></span>
+                </span> at 
+                <span class=" time" title="<%=article.created_at.strftime("%F %H:%M")%>">
+                    <%= time_ago_in_words(article.created_at)%>
+                </span> ago.
+
+                <% if (can?(:update, article) || can?(:destroy,article)) %>
+                <div class="btn-group pull-right">
+                    <a class="btn btn-xs btn-primary dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench fa-fw"></i>
                         <span class="fa fa-caret-down"></span></a>
-                      <ul class="dropdown-menu">
+                        <ul class="dropdown-menu">
                             <% if can? :update, article %>
-                                <li>
-                                    <%= link_to edit_category_article_path(@category,article), data: { no_turbolink: true } do |variable| %>
-                                        <span class="fa fa-pencil fa-fw text-warning"> Edit</span></li>
-                                    <%end %>
-                                </li>
+                            <li>
+                                <%= link_to edit_category_article_path(@category,article), data: { no_turbolink: true } do |variable| %>
+                                <span class="fa fa-pencil fa-fw text-warning"> Edit</span>
+                                <%end %>
+                            </li>
                             <% end %>           
                             <% if can? :destroy, article %>
                             <li class="divider"></li>
-                                <li>
-                                    <%= link_to category_article_path(@category,article), method: :delete, 'data-confirm'=>"Are you sure?" do |variable| %>
-                                        <span class="icon fa fa-trash text-danger"> Destroy</span></li>
-                                    <%end%>
-                                </li>
+                            <li>
+                                <%= link_to category_article_path(@category,article), method: :delete, 'data-confirm'=>"Are you sure?" do |variable| %>
+                                <span class="icon fa fa-trash text-danger"> Destroy</span>
+                                <%end%>
+                            </li>
                             <% end %>
-                      </ul>
+                        </ul>
                     </div>
                     <% end %>
                 </div>
             </div>
+        </div>
+        <div class="col-xs-12 col-md-12">
             <div class="post-body">
                 <% if @article.present? && article==@article %>
-                    <div class="well"><%= raw  article.body %></div>
+                <div class="well"><%= raw  article.body %></div>
                 <% else %>
-                    <div class="well"><%= raw  truncate_html(article.body, length: 1000) %></div>
+                <div class="well"><%= raw  truncate_html(article.body, length: 1000) %></div>
                 <% end %>
             </div>
+        </div>
+        <div class="col-xs-12 col-md-12">
             <div class="post-footer">
                 <div class="tags">
-                <% 20.times do%>
+                    <% 20.times do%>
                     <span class="label label-default"><i class="fa fa-tag"></i> tags</span> 
-                <% end %>
+                    <% end %>
                 </div>         
-            </div>   
-            <hr class="posts-divider">
+            </div>
+        <hr class="posts-divider">   
         </div>
-    </div>
 </div>

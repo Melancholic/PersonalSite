@@ -1,0 +1,74 @@
+<div class="profile-sidebar">
+  <!-- SIDEBAR USERPIC -->
+  <div class="profile-userpic">
+    <img src="https://pp.vk.me/c628229/v628229573/2b345/_8vkZooDKrQ.jpg" class="img-responsive" alt="">
+  </div>
+  <!-- END SIDEBAR USERPIC -->
+  <!-- SIDEBAR USER TITLE -->
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      <%if signed_in? %>
+      <%= current_user.name %>
+      <% else %>
+      <%=t("name")+ " "+t("surname") %>
+      <% end %>
+    </div>
+    <div class="profile-usertitle-job">
+      <%if signed_in? %> 
+      <% if can? :create, Article %>
+      <i class="fa fa-pencil-square-o"></i> Author
+      <% else %>
+      <i class="fa fa-users"></i> Member
+      <% end %>
+      <% else %>
+      <i class="fa fa-code"></i> Developer
+      <% end %>
+    </div>
+  </div>
+  <!-- END SIDEBAR USER TITLE -->
+  <!-- SIDEBAR BUTTONS -->
+  <div class="profile-userbuttons">
+    <% if can?(:create, Article)  %>
+      <%= link_to new_article_path, class:"btn btn-primary" do |x|%>
+        Write post
+      <% end %>
+    <% end %>
+  </div>
+  <!-- END SIDEBAR BUTTONS -->
+  <!-- SIDEBAR MENU -->
+  <div class="profile-usermenu">
+    <ul class="nav">
+      <li class="<%='active' if current_page?(blog_root_page_path) %>">
+        <%= link_to blog_root_page_path do %>
+          <i class="glyphicon glyphicon-home"></i>
+          Overview 
+        <% end %>
+      </li>
+
+    <% if signed_in? %>
+      <li class="<%='active' if current_page?(edit_user_path(current_user)) %>">
+        <%= link_to edit_user_path(current_user) do %>
+          <i class="glyphicon glyphicon-user"></i> 
+          Account Settings 
+        <% end %>
+      </li>
+      <% end %>
+      <% unless signed_in? %>
+        <li>
+          <%= link_to "#social_tab", :class => 'modal-toggle', "data-toggle" => "modal", "data-target"=> ".auth_modal" do%>
+          <i class="glyphicon glyphicon-user"></i> Signing with
+          <div class="pull-right">
+            <i class="fa fa-github"></i>
+            <i class="fa fa-vk"></i>
+            <i class="fa fa-google-plus"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-at"></i>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+</div>
+<!-- END MENU -->
+</div>

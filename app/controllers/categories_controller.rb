@@ -1,6 +1,7 @@
 class CategoriesController < BlogController
     include CategoryHelper
     before_action :set_category, only: [:show, :edit, :update, :destroy]
+    skip_before_action :store_location, only: [:index]
 
     def index
         @category = Category.find_by_id(params[:id]);
