@@ -1,28 +1,11 @@
 == README
+*Warning!* This project is not ready and his performance can not be guaranteed!
+Currently I am working on it ...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO:
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Implement business logic for the user (routes have already been created)
+* Completely change the user roles and authorization logic CanCanCan::Ability
+* Implement a "floating" user profiles for multiple providers OmniAuth
+* Debug and test the logic of Articles, Users and Category
+* Add an administrative area
