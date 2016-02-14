@@ -11,6 +11,15 @@ class User < ActiveRecord::Base
     validates_format_of :email, :without => TEMP_EMAIL_REGEX, on: :update
     has_and_belongs_to_many :roles
 
+    after_create do |user|
+      user.make_as!(:member)
+    end
+
+    def get_name
+      self.email.split('@').first
+      self.name if self.name.present?
+    end
+
     def self.find_for_oauth(auth, signed_in_resource = nil)
         # Get the identity and user if they exist
         identity = Identity.find_for_oauth(auth)
@@ -62,8 +71,26 @@ class User < ActiveRecord::Base
       end
 
       def role?(role)
-        !!self.roles.find_by_name(role.to_s.downcase)
+        if (self.new_record?) 
+          role.to_s==Role.find_by_name('guest').try(:name) 
+        else
+          !!self.roles.find_by_name(role.to_s.downcase)
+        end
       end
 
-      
+      def make_as!(role)
+        raise ArgumentError.new("Only roles are allowed: #{Role.names}") unless( Role.names.include?(role.to_s))
+        if (role == :administrator)
+          self.roles=[Role.find_by_name(role)]
+        elsif (role == :moderator)
+          self.roles= [Role.find_by_name(role), Role.find_by_name('member')]
+        elsif (role == :author)
+          self.roles= [Role.find_by_name(role), Role.find_by_name('member')]
+        elsif (role == :member)
+          self.roles= [Role.find_by_name('member')]
+        elsif (role == :banned)
+          self.roles=  [Role.find_by_name('banned')]
+        end  
+        self.save!
+      end
     end
