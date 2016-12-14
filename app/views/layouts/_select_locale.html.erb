@@ -1,7 +1,20 @@
-<% if (I18n.locale.to_s!='en')%>
-    <i class="famfamfam-flag-gb"></i>
-    <%= link_to(t('to_en'), set_custom_locale_path( locale: 'en'), method: :post, remote: :true) %>
-<%else%>
-    <i class="famfamfam-flag-ru"></i>
-    <%= link_to(t('to_ru'), set_custom_locale_path( locale: 'ru'), method: :post, remote: :true) %>
-<%end%>
+<% icon_only ||= false %>
+<% if icon_only %>
+    <% if (I18n.locale.to_s!='en')%>
+        <%= link_to(set_custom_locale_path( locale: 'en'), title: t('to_en'), method: :post, remote: :true) do %>
+            <i class="famfamfam-flag-gb"></i>
+        <% end %>
+    <% else %>
+        <%= link_to(set_custom_locale_path( locale: 'ru'), title: t('to_ru'), method: :post, remote: :true) do%>
+            <i class="famfamfam-flag-ru"></i>
+        <% end %>
+    <% end %>
+<% else %>
+    <% if (I18n.locale.to_s!='en')%>
+        <i class="famfamfam-flag-gb"></i>
+        <%= link_to(t('to_en'), set_custom_locale_path( locale: 'en'), method: :post, remote: :true) %>
+    <% else %>
+        <i class="famfamfam-flag-ru"></i>
+        <%= link_to(t('to_ru'), set_custom_locale_path( locale: 'ru'), method: :post, remote: :true) %>
+    <% end %>
+<% end %>

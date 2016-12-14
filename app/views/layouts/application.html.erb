@@ -15,14 +15,12 @@
  <meta name="description" content="About me">
  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 </head>
-<%if current_page?(root_path)%>
+
 <body id="page-top">
+
+<%if current_page?(root_path)%>
   <%=render 'layouts/header'%>
   <%= yield %>
-  <hr>
-  <%= debug(params) if Rails.env.development? %>
-  <%=render 'layouts/footer'%>
-</body>
 <%else%>
 <body id="page-top">
   <%=render 'layouts/header'%>
@@ -37,15 +35,15 @@
     <%= render 'shared/breadcrumb' %>
     <%end%>
     <%= yield %>
-    <hr>
-    <%= debug(params) if Rails.env.development? %>
-    <%=render 'layouts/footer'%>
   </div>
-
 </div>
+<%end%>
+
+<%= debug(params) if Rails.env.development? %>
+<%=render 'layouts/footer'%>
 
 </body>
-<%end%>
+
 <div class="forms-area">
   <%=render 'shared/finish_signup_form_sources'%>
   <%= render 'shared/session_buttons' unless signed_in? %>

@@ -77,6 +77,6 @@ en:
             coordinate_desc: Rails, Mobile API,  Mobile App (Android)
             coordinate_name: Coordinate
             view_code: View source code
-        rootpage:
+        contacts:
             contact_title: "Contacts"
             contact_text: "You can contact me using these services"

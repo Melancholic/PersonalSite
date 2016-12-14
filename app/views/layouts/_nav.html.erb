@@ -15,6 +15,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <%=render 'layouts/select_locale', icon_only: true%>
+                    </li>
+                    <li>
                         <%=link_to t('.about'), "#{root_url}#about", class:"page-scroll"  %>
                     </li>
                     <li>

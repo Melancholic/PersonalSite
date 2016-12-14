@@ -1,4 +1,8 @@
 module ApplicationHelper
+    def get_namespace( path )
+        path.split("/").first
+    end
+
     def full_title(page_title="")
         base_title= "Nagorny Andrey"
         if (page_title.empty?)

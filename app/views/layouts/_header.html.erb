@@ -1,5 +1,5 @@
  <%= render 'layouts/nav' %>
- <header>
+ <header class ="<%= "blog_mode"  unless current_page?(root_path) %>" >
  	<div class="header-content">
  		<div class="header-content-inner">
  			<p style="font-size: 25px;"><%=t('.description')%></p>

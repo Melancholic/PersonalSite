@@ -79,6 +79,6 @@ ru:
             coordinate_desc: Rails, Mobile API,  Mobile App (Android)
             coordinate_name: Coordinate
             view_code: Исходный код
-        rootpage:
+        contacts:
             contact_title: "Контактные данные"
             contact_text: "Вы можете связаться со мной, используя следующие сервисы"
