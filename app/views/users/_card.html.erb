@@ -46,8 +46,8 @@
       </li>
 
     <% if signed_in? %>
-      <li class="<%='active' if current_page?(edit_user_path(current_user)) %>">
-        <%= link_to edit_user_path(current_user) do %>
+      <li class="<%='active' if current_page?(user_path(current_user)) %>">
+        <%= link_to current_user do %>
           <i class="glyphicon glyphicon-user"></i> 
           Account Settings 
         <% end %>
