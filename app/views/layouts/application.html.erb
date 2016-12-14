@@ -32,17 +32,18 @@
     <%= render 'blog/user_card' %>
     <%= render 'blog/categories' %>
   </div>
-    <div itemscope="" itemtype="" class="col-xs-12 col-md-8 col-md-pull-4 main-content">
-        <% if @category.present? %>
-        <%= render 'shared/breadcrumb' %>
-        <%end%>
-        <%= yield %>
-    </div>
-
+  <div itemscope="" itemtype="" class="col-xs-12 col-md-8 col-md-pull-4 main-content">
+    <% if @category.present? %>
+    <%= render 'shared/breadcrumb' %>
+    <%end%>
+    <%= yield %>
+    <hr>
+    <%= debug(params) if Rails.env.development? %>
+    <%=render 'layouts/footer'%>
   </div>
-  <hr>
-  <%= debug(params) if Rails.env.development? %>
-  <%=render 'layouts/footer'%>
+
+</div>
+
 </body>
 <%end%>
 <div class="forms-area">
