@@ -269,5 +269,5 @@ Devise.setup do |config|
   config.omniauth :github, API_KEYS['github']['api_key'], API_KEYS['github']['api_secret']
   config.omniauth :twitter, API_KEYS['twitter']['api_key'], API_KEYS['twitter']['api_secret']
   config.omniauth :vkontakte, API_KEYS['vkontakte']['api_key'], API_KEYS['vkontakte']['api_secret']
-  config.omniauth :google_oauth2, API_KEYS['google']['api_key'], API_KEYS['google']['api_secret'],:name => "google"
+  config.omniauth :google_oauth2, API_KEYS['google']['api_key'], API_KEYS['google']['api_secret'],:name => "google", skip_jwt: true
 end
